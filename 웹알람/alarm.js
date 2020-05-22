@@ -84,6 +84,7 @@ window.onload = function() {
 
       // At last, if the user has denied notifications, and you
       // want to be respectful there is no need to bother them any more.
+      alert('알람 테스트')
     }, 7000);
 
   }
