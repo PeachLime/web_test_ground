@@ -44,6 +44,7 @@ window.onload = function() {
     }
   }
 
+
   // Function to check whether browser supports the promise version of requestPermission()
   // Safari only supports the old callback-based version
   function checkNotificationPromise() {
@@ -58,9 +59,9 @@ window.onload = function() {
 
 
   function notifyMe() {
-    console.log('customLog: notification delay 7000');
+    console.log('customLog: notification delay 5000');
     setTimeout(function() {
-      console.log('delayed 7000');
+      console.log('delayed 5000');
       // Let's check if the browser supports notifications
       if (!("Notification" in window)) {
         alert("This browser does not support desktop notification");
@@ -69,7 +70,9 @@ window.onload = function() {
       // Let's check whether notification permissions have already been granted
       else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
-        var notification = new Notification("Hi there!");
+        var notification = new Notification("Hi there!", {
+          body: "Hi there!"
+        });
       }
 
       // Otherwise, we need to ask the user for permission
@@ -77,14 +80,16 @@ window.onload = function() {
         Notification.requestPermission(function (permission) {
           // If the user accepts, let's create a notification
           if (permission === "granted") {
-            var notification = new Notification("Hi there!");
-          }
+            var notification = new Notification("Hi there!", {
+              body: "Hi there!"
+            });
         });
       }
 
       // At last, if the user has denied notifications, and you
       // want to be respectful there is no need to bother them any more.
-    }, 7000);
+      alert('알람 테스트')
+    }, 5000);
 
   }
 
