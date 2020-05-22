@@ -7,7 +7,7 @@ window.onload = function() {
   var testButton = document.getElementById('testButton');
 
   function test() {
-    alarm('TEST')
+    alert('TEST')
   }
 
 
@@ -79,7 +79,7 @@ window.onload = function() {
       });
     }
 
-    // At last, if the user has denied notifications, and you 
+    // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them any more.
   }
 
