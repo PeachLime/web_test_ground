@@ -6,7 +6,7 @@ window.onload = function() {
   var testButton = document.getElementById('testButton');
 
   function test() {
-    alarm('TEST');
+    alarm('TEST')
   }
 
 
