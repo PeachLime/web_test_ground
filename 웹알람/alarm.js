@@ -1,11 +1,12 @@
-var alarmButton = document.getElementById('alarmButton');
-var testButton = document.getElementById('testButton');
+
 
 
 window.onload() = {
+  var alarmButton = document.getElementById('alarmButton');
+  var testButton = document.getElementById('testButton');
 
   function test() {
-    alarm('TEST')
+    alarm('TEST');
   }
 
 
