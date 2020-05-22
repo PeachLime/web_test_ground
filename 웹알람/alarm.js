@@ -73,6 +73,7 @@ window.onload = function() {
         var notification = new Notification("Hi there!", {
           body: "Hi there!"
         });
+        reg.showNotification("Hello there!", options);
       }
 
       // Otherwise, we need to ask the user for permission
@@ -83,6 +84,10 @@ window.onload = function() {
             var notification = new Notification("Hi there!", {
               body: "Hi there!"
             });
+            var options = {
+              body: "Hi there!"
+            };
+            reg.showNotification("Hello there!", options);
           }
         });
       }
@@ -92,6 +97,7 @@ window.onload = function() {
 
     }, 5000);
     alert('알람 테스트')
+    reg.showNotification("알람 테스트");
   }
 
 
