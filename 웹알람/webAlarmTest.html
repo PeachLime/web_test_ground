@@ -23,13 +23,14 @@
       }
 
       // 브라우저가 알림을 지원하는지 확인
-
+      componentDidMount() {
+        this.askNotificationPermission();
+      }
 
       askNotificationPermission = async () => {
         // check if the browser supports notifications
         if ("Notification" in window) {
-          tmp = this.checkNotificationPromise()
-          if (tmp) {
+          if (this.checkNotificationPromise()) {
             const permission = await Notification.requestPermission();
             this.handlePermission(permission);
           } else {
@@ -39,6 +40,12 @@
           }
         } else {
           console.log("This browser does not support notifications.");
+        }
+      };
+
+      handlePermission = permission => {
+        if (!("permission" in Notification)) {
+          Notification.permission = permission;
         }
       };
     }
