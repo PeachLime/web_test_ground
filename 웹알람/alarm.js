@@ -3,7 +3,7 @@ var testButton = document.getElementById('testButton');
 
 
 window.onload() = {
-  
+
   function test() {
     alarm('TEST')
   }
@@ -42,6 +42,17 @@ window.onload() = {
     }
   }
 
+  // Function to check whether browser supports the promise version of requestPermission()
+  // Safari only supports the old callback-based version
+  function checkNotificationPromise() {
+    try {
+      Notification.requestPermission().then();
+    } catch(e) {
+      return false;
+    }
+
+    return true;
+  }
 
 
 
