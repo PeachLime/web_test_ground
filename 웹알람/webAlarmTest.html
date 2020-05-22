@@ -23,10 +23,13 @@
       }
 
       // 브라우저가 알림을 지원하는지 확인
+
+
       askNotificationPermission = async () => {
         // check if the browser supports notifications
         if ("Notification" in window) {
-          if (this.checkNotificationPromise()) {
+          tmp = this.checkNotificationPromise()
+          if (tmp) {
             const permission = await Notification.requestPermission();
             this.handlePermission(permission);
           } else {
