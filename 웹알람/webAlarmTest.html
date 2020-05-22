@@ -23,20 +23,21 @@
       }
 
       // 브라우저가 알림을 지원하는지 확인
-      if (!('Notification' in window)) {
-        console.log("이 브라우저는 알림을 지원하지 않습니다.");
-      } else {
-        if(checkNotificationPromise()) {
-          Notification.requestPermission()
-          .then((permission) => {
-            handlePermission(permission);
-          })
+      askNotificationPermission = async () => {
+        // check if the browser supports notifications
+        if ("Notification" in window) {
+          if (this.checkNotificationPromise()) {
+            const permission = await Notification.requestPermission();
+            this.handlePermission(permission);
+          } else {
+            Notification.requestPermission(permission => {
+              this.handlePermission(permission);
+            });
+          }
         } else {
-          Notification.requestPermission(function(permission) {
-            handlePermission(permission);
-          });
+          console.log("This browser does not support notifications.");
         }
-      }
+      };
     }
 
     function test() {
