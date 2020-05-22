@@ -71,8 +71,7 @@ window.onload = function() {
         // If it's okay let's create a notification
         var notification = new Notification("Hi there!", {
           body: "Hi there!"
-        }
-        );
+        });
       }
 
       // Otherwise, we need to ask the user for permission
@@ -82,8 +81,7 @@ window.onload = function() {
           if (permission === "granted") {
             var notification = new Notification("Hi there!", {
               body: "Hi there!"
-            }
-            );
+            });
         });
       }
 
