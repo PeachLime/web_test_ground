@@ -1,8 +1,8 @@
-
+var alarmButton = document.getElementById('alarmButton');
 
 
 window.onload() = {
-  var alarmButton = document.getElementById('alarmButton');
+
   var testButton = document.getElementById('testButton');
 
   function test() {
