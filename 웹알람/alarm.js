@@ -37,3 +37,4 @@ window.onload() = {
 
   alarmButton.addEventListener('click', askNotificationPermission)
 }
+ 
