@@ -83,6 +83,7 @@ window.onload = function() {
             var notification = new Notification("Hi there!", {
               body: "Hi there!"
             });
+          }
         });
       }
 
