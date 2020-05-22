@@ -11,11 +11,11 @@ window.onload() = {
       }
 
       // set the button to shown or hidden, depending on what the user answers
-      if(Notification.permission === 'denied' || Notification.permission === 'default') {
-        alarmButton.style.display = 'block';
-      } else {
-        alarmButton.style.display = 'none';
-      }
+//      if(Notification.permission === 'denied' || Notification.permission === 'default') {
+//        alarmButton.style.display = 'block';
+//      } else {
+//        alarmButton.style.display = 'none';
+//      }
     }
 
     // Let's check if the browser supports notifications
@@ -37,4 +37,3 @@ window.onload() = {
 
   alarmButton.addEventListener('click', askNotificationPermission)
 }
- 
