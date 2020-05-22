@@ -86,7 +86,6 @@ window.onload = function() {
 
 
 
-
   alarmPermissionRequestButton.addEventListener('click', askNotificationPermission)
   alarmButton.addEventListener('click', notifyMe)
   testButton.addEventListener('click', test)
