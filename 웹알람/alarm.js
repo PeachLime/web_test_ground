@@ -1,4 +1,5 @@
 var alarmButton = document.getElementById('alarmButton');
+var testButton = document.getElementById('testButton');
 
 
 window.onload() = {
@@ -35,5 +36,12 @@ window.onload() = {
     }
   }
 
+  function test() {
+    alarm('TEST')
+  }
+
+
+
   alarmButton.addEventListener('click', askNotificationPermission)
+  testButton.addEventListener('click', test)
 }
