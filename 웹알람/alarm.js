@@ -58,9 +58,9 @@ window.onload = function() {
 
 
   function notifyMe() {
-    console.log('customLog: notification delay 3000');
+    console.log('customLog: notification delay 7000');
     setTimeout(function() {
-      console.log('delayed 3000');
+      console.log('delayed 7000');
       // Let's check if the browser supports notifications
       if (!("Notification" in window)) {
         alert("This browser does not support desktop notification");
@@ -84,7 +84,7 @@ window.onload = function() {
 
       // At last, if the user has denied notifications, and you
       // want to be respectful there is no need to bother them any more.
-    }, 3000);
+    }, 7000);
 
   }
 
