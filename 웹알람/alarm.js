@@ -87,6 +87,6 @@ window.onload = function() {
 
 
   alarmPermissionRequestButton.addEventListener('click', askNotificationPermission)
-  alarmButton.addEventListener('click', notifyMe)
+  alarmButton.addEventListener('click', setTimeout(notifyMe, 3000);)
   testButton.addEventListener('click', test)
 }
