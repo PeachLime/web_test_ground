@@ -3,6 +3,12 @@ var testButton = document.getElementById('testButton');
 
 
 window.onload() = {
+  
+  function test() {
+    alarm('TEST')
+  }
+
+
   function askNotificationPermission() {
     // function to actually ask the permissions
     function handlePermission(permission) {
@@ -36,9 +42,7 @@ window.onload() = {
     }
   }
 
-  function test() {
-    alarm('TEST')
-  }
+
 
 
 
