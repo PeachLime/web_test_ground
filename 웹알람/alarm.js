@@ -44,6 +44,7 @@ window.onload = function() {
     }
   }
 
+
   // Function to check whether browser supports the promise version of requestPermission()
   // Safari only supports the old callback-based version
   function checkNotificationPromise() {
