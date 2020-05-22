@@ -1,5 +1,6 @@
 
 
+
 window.onload = function() {
   var alarmPermissionRequestButton = document.getElementById('alarmPermissionRequestButton');
   var alarmButton = document.getElementById('alarmButton');
