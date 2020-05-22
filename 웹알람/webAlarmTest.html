@@ -4,64 +4,13 @@
 
   <title>WEB1 - Welcome</title>
   <meta charset="utf-8">
-  <script language='javascript'>
-    function askNotificationPermission() {
-      alert("버튼을 클릭하셨습니다.")
-      // 권한을 실제로 요구하는 함수
-      function handlePermission(permission) {
-        // 사용자의 응답에 관계 없이 크롬이 정보를 저장할 수 있도록 함
-        if(!('permission' in Notification)) {
-          Notification.permission = permission;
-        }
-
-        // 사용자 응답에 따라 단추를 보이거나 숨기도록 설정
-        if(Notification.permission === 'denied' || Notification.permission === 'default') {
-          notificationBtn.style.display = 'block';
-        } else {
-          notificationBtn.style.display = 'none';
-        }
-      }
-
-      // 브라우저가 알림을 지원하는지 확인
-      componentDidMount() {
-        this.askNotificationPermission();
-      }
-
-      askNotificationPermission = async () => {
-        // check if the browser supports notifications
-        if ("Notification" in window) {
-          if (this.checkNotificationPromise()) {
-            const permission = await Notification.requestPermission();
-            this.handlePermission(permission);
-          } else {
-            Notification.requestPermission(permission => {
-              this.handlePermission(permission);
-            });
-          }
-        } else {
-          console.log("This browser does not support notifications.");
-        }
-      };
-
-      handlePermission = permission => {
-        if (!("permission" in Notification)) {
-          Notification.permission = permission;
-        }
-      };
-    }
-
-    function test() {
-      alert("버튼을 클릭하셨습니다.")
-    }
-
-  </script>
 </head>
 
 
 
 
 <body>
-  <input type="button" name="알림 허용 버튼" value="알림 허용" onclick="askNotificationPermission()">
+  <input type="button" id="alarmButton" name="알림 허용 버튼" value="알림 허용">
   <button id="enable" onclick="test()">알림 허용</button>
 
 
@@ -98,7 +47,7 @@
 
 
 
-
+ <script src="./alarm.js"></script>
  </body>
 
 </html>
