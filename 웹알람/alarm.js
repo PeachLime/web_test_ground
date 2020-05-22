@@ -58,7 +58,7 @@ window.onload = function() {
 
 
   function notifyMe() {
-    setTimeout(function() {console.log('customLog: notification delay 3000');}, delay);
+    setTimeout(function() {console.log('customLog: notification delay 3000');}, 3000);
     // Let's check if the browser supports notifications
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
