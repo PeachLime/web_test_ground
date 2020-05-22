@@ -1,8 +1,9 @@
-var alarmButton = document.getElementById('alarmButton');
+
 
 
 window.onload = function() {
-
+  var alarmPermissionRequestButton = document.getElementById('alarmPermissionRequestButton');
+  var alarmButton = document.getElementById('alarmButton');
   var testButton = document.getElementById('testButton');
 
   function test() {
@@ -20,9 +21,9 @@ window.onload = function() {
 
       // set the button to shown or hidden, depending on what the user answers
 //      if(Notification.permission === 'denied' || Notification.permission === 'default') {
-//        alarmButton.style.display = 'block';
+//        alarmPermissionRequestButton.style.display = 'block';
 //      } else {
-//        alarmButton.style.display = 'none';
+//        alarmPermissionRequestButton.style.display = 'none';
 //      }
     }
 
@@ -56,8 +57,36 @@ window.onload = function() {
   }
 
 
+  function notifyMe() {
+    // Let's check if the browser supports notifications
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    }
+
+    // Let's check whether notification permissions have already been granted
+    else if (Notification.permission === "granted") {
+      // If it's okay let's create a notification
+      var notification = new Notification("Hi there!");
+    }
+
+    // Otherwise, we need to ask the user for permission
+    else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        // If the user accepts, let's create a notification
+        if (permission === "granted") {
+          var notification = new Notification("Hi there!");
+        }
+      });
+    }
+
+    // At last, if the user has denied notifications, and you 
+    // want to be respectful there is no need to bother them any more.
+  }
 
 
-  alarmButton.addEventListener('click', askNotificationPermission)
+
+
+  alarmPermissionRequestButton.addEventListener('click', askNotificationPermission)
+  alarmButton.addEventListener('click', notifyMe)
   testButton.addEventListener('click', test)
 }
