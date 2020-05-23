@@ -87,7 +87,8 @@ window.onload = function() {
             var options = {
               body: "Hi there!"
             };
-            reg.showNotification("Hello there!", options);
+            registration.showNotification("Hello there!", options);
+            registration
           }
         });
       }
