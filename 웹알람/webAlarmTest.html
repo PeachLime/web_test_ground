@@ -4,7 +4,7 @@
 
   <title>WEB1 - Welcome</title>
   <meta charset="utf-8">
-  <script src="./alarm.js?ver=16"></script>
+  <script src="./alarm.js?ver=17"></script>
 
   <script>
     navigator.serviceWorker.register('./service_worker.js');
@@ -24,6 +24,26 @@
       });
     };
 
+    function showNotification_delayed(title, message, url, icon) {
+      setTimeout(function() {
+        Notification.requestPermission(function(result) {
+          if (result === 'granted') {
+            navigator.serviceWorker.ready.then(function(registration) {
+              registration.showNotification(title, {
+                body: message,
+                icon: icon,
+                vibrate: [200, 100, 200, 100, 200, 100, 200],
+                tag: 'vibration-sample',
+                data : url
+              });
+            });
+          }
+        });
+      }, 5000);
+    };
+
+
+
     var defaultURL="https://peachlime.github.io/web_test_ground/%EC%9B%B9%EC%95%8C%EB%9E%8C/webAlarmTest.html"
     function defulatShowNotification(){
     	showNotification('Vibration Sample', 'test!', defaultURL, '/얀교수.jpg');
@@ -38,8 +58,9 @@
   <input type="button" id="alarmPermissionRequestButton" value="알림 허용"><br>
   <input type="button" id="alarmButton" value="알림 버튼 테스트"><br>
   <input type="button" id="alarmButton2" value="알림 버튼 테스트 ver2" onclick="showNotification()"><br>
+  <input type="button" id="alarmButton2" value="알림 버튼 테스트 ver2_delayed" onclick="showNotification_delayed()"><br>
   <input type="button" id="testButton" value="테스트"><br>
-16
+17
 
   <h1><a href="index.html">WEB </a></h1>
 
